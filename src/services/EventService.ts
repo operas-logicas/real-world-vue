@@ -14,11 +14,11 @@ export default {
     return apiClient.get('/events')
   },
 
-  getEvent(id: Number|String) {
+  getEvent(id: string) {
     return apiClient.get(`/events/${id}`)
   },
 
-  postEvent(event: Object) {
+  postEvent(event: object) {
     return apiClient.post('/events/', event)
   }
 }

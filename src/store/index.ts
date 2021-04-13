@@ -2,20 +2,20 @@ import { createStore } from 'vuex'
 import EventService from '../services/EventService'
 
 interface State {
-  user: String,
-  events: event[],
-  event: null|event
+  user: string;
+  events: Event[];
+  event: null | Event;
 }
 
-interface event {
-  id: Number|String,
-  category: String,
-  title: String,
-  description: String,
-  location: String,
-  date: String,
-  time: String,
-  organizer: String
+interface Event {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  location: string;
+  date: string;
+  time: string;
+  organizer: string;
 }
 
 export default createStore<State>({
@@ -26,21 +26,21 @@ export default createStore<State>({
   },
 
   mutations: {
-    ADD_EVENT(state, event) {
+    ADD_EVENT(state, event: Event) {
       state.events.push(event)
     },
 
-    SET_EVENTS(state, events) {
+    SET_EVENTS(state, events: Event[]) {
       state.events = events
     },
 
-    SET_EVENT(state, event) {
+    SET_EVENT(state, event: Event) {
       state.event = event
     }
   },
 
   actions: {
-    async createEvent({ commit }, event) {
+    async createEvent({ commit }, event: Event) {
       try {
         await EventService.postEvent(event)
         commit('ADD_EVENT', event)
@@ -63,7 +63,7 @@ export default createStore<State>({
       }
     },
 
-    async fetchEvent({ commit, state }, id) {
+    async fetchEvent({ commit, state }, id: string) {
       const event = state.events.find(event => event.id === id)
       if (event) commit('SET_EVENT', event)
       else {
