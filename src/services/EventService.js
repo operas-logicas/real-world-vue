@@ -1,7 +1,9 @@
 import axios from 'axios'
 
-const apiClient = axios.create({
-  baseURL: 'http://localhost:3000',
+const appClient = axios.create({
+  baseURL: process.env.NODE_ENV === "production"
+    ? 'https://my-json-server.typicode.com/Code-Pop/Real-World_Vue-3'
+    : 'http://localhost:3000',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
@@ -11,14 +13,10 @@ const apiClient = axios.create({
 
 export default {
   getEvents() {
-    return apiClient.get('/events')
+    return appClient.get('/events')
   },
 
   getEvent(id) {
-    return apiClient.get(`/events/${id}`)
-  },
-
-  postEvent(event) {
-    return apiClient.post('/events/', event)
+    return appClient.get('/events/' + id)
   }
 }
