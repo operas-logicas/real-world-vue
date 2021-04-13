@@ -46,7 +46,8 @@ export default createStore<State>({
         commit('ADD_EVENT', event)
         commit('SET_EVENT', event)
       } catch (error) {
-        throw new Error(error)
+        console.log(error)
+        throw error
       }
     },
 
@@ -57,7 +58,8 @@ export default createStore<State>({
           (await EventService.getEvents()).data
         )
       } catch (error) {
-        throw new Error(error)
+        console.log(error)
+        throw error
       }
     },
 
@@ -71,7 +73,8 @@ export default createStore<State>({
             (await EventService.getEvent(id)).data
           )
         } catch (error) {
-          throw new Error(error)
+          console.log(error)
+          throw error
         }
       }
     }

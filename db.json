@@ -39,6 +39,16 @@
       "date": "April 25, 2022",
       "time": "10:00",
       "organizer": "Robert Miller"
+    },
+    {
+      "id": "ee5c8506-1344-4917-ada2-2f3881f1cc8e",
+      "category": "food",
+      "title": "Food Drive",
+      "description": "Help those with need",
+      "location": "Food Bank",
+      "date": "March 1, 2022",
+      "time": "9:00",
+      "organizer": "Robert Miller"
     }
   ]
 }
