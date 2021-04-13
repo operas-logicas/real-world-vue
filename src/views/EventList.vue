@@ -6,9 +6,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import EventCard from '@/components/EventCard.vue'
-import EventService from '@/services/EventService.js'
+import EventCard from '../components/EventCard.vue'
 
 export default {
   name: 'EventList',
@@ -17,20 +15,21 @@ export default {
     EventCard
   },
 
-  data() {
-    return {
-      events: null
-    }
+  async created() {
+   try {
+     await this.$store.dispatch('fetchEvents')
+   } catch (error) {
+     this.$router.push({
+       name: 'ErrorDisplay',
+       params: { error }
+     })
+   }
   },
 
-  created() {
-    EventService.getEvents()
-      .then(response => {
-        this.events = response.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
+  computed: {
+    events() {
+      return this.$store.state.events
+    }
   }
 }
 </script>
