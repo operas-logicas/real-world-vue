@@ -5,12 +5,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import EventCard from '../components/EventCard.vue'
 
-export default {
+export default defineComponent({
   name: 'EventList',
-
   components: {
     EventCard
   },
@@ -31,7 +31,7 @@ export default {
       return this.$store.state.events
     }
   }
-}
+})
 </script>
 
 <style scoped>

@@ -50,10 +50,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 
-export default {
+export default defineComponent({
   data() {
     return {
       categories: [
@@ -73,7 +74,7 @@ export default {
     async onSubmit() {
       try {
         await this.$store.dispatch('createEvent', this.event)
-        this.freshEventObject() // ???
+        this.freshEventObject()
         await this.$router.push({
           name: 'EventDetails',
           params: { id: this.event.id }
@@ -102,5 +103,5 @@ export default {
       }
     }
   }
-}
+})
 </script>
