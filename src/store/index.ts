@@ -1,28 +1,12 @@
 import { createStore } from 'vuex'
+import { State, Event } from '../types'
 import EventService from '../services/EventService'
-
-interface State {
-  user: string;
-  events: Event[];
-  event: null | Event;
-}
-
-interface Event {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-  location: string;
-  date: string;
-  time: string;
-  organizer: string;
-}
 
 export default createStore<State>({
   state: {
     user: 'Robert Miller',
-    events: [],
-    event: null
+    events: [] as Event[],
+    event: null as unknown as Event
   },
 
   mutations: {

@@ -7,10 +7,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { Event } from '../types'
 import EventCard from '../components/EventCard.vue'
 
 export default defineComponent({
   name: 'EventList',
+  
   components: {
     EventCard
   },
@@ -27,7 +29,7 @@ export default defineComponent({
   },
 
   computed: {
-    events() {
+    events(): Event[] {
       return this.$store.state.events
     }
   }

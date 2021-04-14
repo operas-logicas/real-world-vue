@@ -53,8 +53,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
+import { Event } from '../types'
 
-export default defineComponent({
+export default defineComponent<Event>({
   data() {
     return {
       categories: [
@@ -66,7 +67,7 @@ export default defineComponent({
         'food',
         'community'
       ],
-      event: this.freshEventObject()
+      event: this.freshEventObject() as Event
     }
   },
 
@@ -87,9 +88,9 @@ export default defineComponent({
       }
     },
 
-    freshEventObject() {
-      const id = uuidv4()
-      const user = this.$store.state.user
+    freshEventObject(): Event {
+      const id: string = uuidv4()
+      const user: string = this.$store.state.user
 
       return {
         id,

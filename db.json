@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "id": 123,
+      "id": "9e4f061f-4e9f-4874-aa27-01e415a223be",
       "category": "animal welfare",
       "title": "Cat Adoption Day",
       "description": "Find your new feline friend at this event.",
@@ -11,7 +11,7 @@
       "organizer": "Kat Laydee"
     },
     {
-      "id": 456,
+      "id": "78920d29-16bb-43bd-8dbf-84911d8fcfe5",
       "category": "food",
       "title": "Community Gardening",
       "description": "Join us as we tend to the community edible plants.",
@@ -21,7 +21,7 @@
       "organizer": "Fern Pollin"
     },
     {
-      "id": 789,
+      "id": "818b2a16-d138-486b-9837-be4a245bc31e",
       "category": "sustainability",
       "title": "Beach Cleanup",
       "description": "Help pick up trash along the shore.",

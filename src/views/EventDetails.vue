@@ -8,9 +8,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { Event } from '../types'
 
 export default defineComponent({
-  props: ['id'],
+  props: {
+    'id': {
+      type: String,
+      required: true
+    }
+  },
 
   async created() {
     try {
@@ -24,7 +30,7 @@ export default defineComponent({
   },
 
   computed: {
-    event() {
+    event(): Event {
       return this.$store.state.event
     }
   }
